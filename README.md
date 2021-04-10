@@ -14,9 +14,9 @@
      Default region name [None]: YOUR_AWS_REGION
      Default output format [None]: json
 
-```git clone https://projeto/natura```
+```git clone https://github.com/skeeterx88/terraform-eks```
 
-```cd natura/eks```
+```cd terraform-eks```
 
 ### DESENHO DA ARQUITETURA ###
 
