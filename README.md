@@ -44,5 +44,6 @@
 ### Get hostname of applications
 App-01
 ```kubectl.exe get service -n app-01 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname}'```
+
 App-02
 ```kubectl.exe get service -n app-02 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname}'```
