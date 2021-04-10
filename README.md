@@ -26,8 +26,9 @@
 4. outputs.tf defines the output configuration.
 5. versions.tf sets the Terraform version to at least 0.14. It also sets versions for the providers used in this challenge. 
 6. Variables.tf defines the variables.
-7. App-01.tf defines the deployment of app-01.
-8. App-02.tf defines the deployment of app-02.
+7. helm.tf defines the helm configuration.
+8. App-01.tf defines the deployment of app-01.
+9. App-02.tf defines the deployment of app-02.
 
 
 ### Initialize Terraform workspace
