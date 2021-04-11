@@ -34,7 +34,7 @@
 ### Initialize Terraform workspace
 ```terraform init```
 ### Provision the EKS cluster
-```terraform apply```
+```terraform apply -auto-approve```
 ### Configure kubectl
 ``´aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)```
 
