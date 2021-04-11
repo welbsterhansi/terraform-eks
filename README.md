@@ -35,20 +35,18 @@
 ```terraform init```
 ### Provision the EKS cluster
 ```terraform apply -auto-approve```
-### Configure kubectl
+## Configure kubectl
 ```aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)```
 
-Get info of the nodes
-
+## Get info of the nodes
 ```kubectl get nodes```
 
-Get info of the cluster
-
+##Get info of the cluster
 ```kubectl cluster-info```
 
 ### Get hostname of applications
-App-01
+##App-01
 ```kubectl get service -n app-01 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname}'```
 
-App-02
+##App-02
 ```kubectl get service -n app-02 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname}'```
