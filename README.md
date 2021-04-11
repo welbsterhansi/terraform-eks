@@ -1,4 +1,4 @@
-## For this challenge, you will need:
+## For this challenge, you will need
 - An AWS account with the IAM permissions listed on the EKS module documentation,
 - A configured AWS CLI
 - AWS IAM Authenticator
