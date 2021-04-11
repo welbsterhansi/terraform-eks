@@ -60,9 +60,11 @@
 
 ## Check App version and Rollback version
 ### Check App version
-```helm ls -n app-01
-helm ls -n app-02```
+```helm ls -n app-01```
+
+```helm ls -n app-02```
 
 ### Rolling back the application
-```helm rollback nginx 5 -n app-01
-helm rollback wordpress 5 -n app-02```
+```helm rollback nginx 5 -n app-01```
+
+```helm rollback wordpress 5 -n app-02```
