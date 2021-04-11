@@ -6,7 +6,7 @@
 - wget (required for the eks module)
 - helm (required for deploy the applications)
 
-## Configfure AWS CLI
+## Configure AWS CLI
 ```aws configure```
 
      AWS Access Key ID [None]: YOUR_AWS_ACCESS_KEY_ID
@@ -19,6 +19,7 @@
 ```cd terraform-eks```
 
 ## DESENHO DA ARQUITETURA ###
+
 
 ## List of files and their descriptions
 1. [vpc.tf](vpc.tf) provisions a VPC, subnets and availability zones using the AWS VPC Module. 
