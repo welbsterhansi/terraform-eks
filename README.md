@@ -38,10 +38,12 @@
 ### Configure kubectl
 ```aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)```
 
-Get info of nodes
+Get info of the nodes
+
 ```kubectl get nodes```
 
-Get info of cluster
+Get info of the cluster
+
 ```kubectl cluster-info```
 
 ### Get hostname of applications
