@@ -21,7 +21,7 @@
 ## DESENHO DA ARQUITETURA ###
 
 ## List of files and their descriptions
-1. vpc.tf provisions a VPC, subnets and availability zones using the AWS VPC Module. 
+1. [vpc.tf](vpc.tf) provisions a VPC, subnets and availability zones using the AWS VPC Module. 
 2. security-groups.tf provisions the security groups used by the EKS cluster.
 3. eks-cluster.tf provisions all the resources (AutoScaling Groups, etc...) required to set up an EKS cluster using the AWS EKS Module.
 4. outputs.tf defines the output configuration.
