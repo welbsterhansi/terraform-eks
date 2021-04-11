@@ -22,14 +22,14 @@
 
 ## List of files and their descriptions
 1. [vpc.tf](vpc.tf) provisions a VPC, subnets and availability zones using the AWS VPC Module. 
-2. security-groups.tf provisions the security groups used by the EKS cluster.
-3. eks-cluster.tf provisions all the resources (AutoScaling Groups, etc...) required to set up an EKS cluster using the AWS EKS Module.
-4. outputs.tf defines the output configuration.
-5. versions.tf sets the Terraform version to at least 0.14. It also sets versions for the providers used in this challenge. 
-6. Variables.tf defines the variables.
-7. helm.tf defines the helm configuration.
-8. App-01.tf defines the deployment of app-01 with Replicas, Resources and Autoscale.
-9. App-02.tf defines the deployment of app-02 with Replicas, Resources and Autoscale.
+2. [security-groups.tf](security-groups.tf) provisions the security groups used by the EKS cluster.
+3. [eks-cluster.tf](eks-cluster.tf) provisions all the resources (AutoScaling Groups, etc...) required to set up an EKS cluster using the AWS EKS Module.
+4. [outputs.tf](outputs.tf) defines the output configuration.
+5. [versions.tf](versions.tf) sets the Terraform version to at least 0.14. It also sets versions for the providers used in this challenge. 
+6. [variables.tf](variables.tf) defines the variables.
+7. [helm.tf](helm.tf) defines the helm configuration.
+8. [app-01.tf](app-01.tf) defines the deployment of app-01 with Replicas, Resources and Autoscale.
+9. [app-02.tf](app-02.tf) defines the deployment of app-02 with Replicas, Resources and Autoscale.
 
 ## Initialize Terraform workspace
 ```terraform init```
