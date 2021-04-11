@@ -28,8 +28,8 @@
 5. versions.tf sets the Terraform version to at least 0.14. It also sets versions for the providers used in this challenge. 
 6. Variables.tf defines the variables.
 7. helm.tf defines the helm configuration.
-8. App-01.tf defines the deployment of app-01.
-9. App-02.tf defines the deployment of app-02.
+8. App-01.tf defines the deployment of app-01 with Replicas, Resources and Autoscale.
+9. App-02.tf defines the deployment of app-02 with Replicas, Resources and Autoscale.
 
 ## Initialize Terraform workspace
 ```terraform init```
@@ -44,10 +44,16 @@
 ### Get info of the cluster
 ```kubectl cluster-info```
 
-## Get hostname of applications
-### App-01
-```curl $(kubectl get service -n app-01 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname})'```
+## Get the app URL
+### App-01 URL access test
+```curl http://$(kubectl get service -n app-01 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname}')```
 
-### App-02
-```curl $(kubectl get service -n app-02 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname})'```
+### App-02 URL access test 
+```curl http://$(kubectl get service -n app-02 -o jsonpath='{.items[*].status.loadBalancer.ingress[*].hostname}')```
 
+## Check the Horizontal Pod Autoscaler
+### Check the CPU autoscale in the App-01
+```kubectl get hpa -n app-01```
+
+### Check the memory autoscale in the App-02
+```kubectl get hpa -n app-02```
