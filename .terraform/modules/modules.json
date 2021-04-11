@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"infra","Source":"./infra/","Dir":"infra"},{"Key":"","Source":"","Dir":"."},{"Key":"infra.network","Source":"../modules/infra/network/","Dir":"modules/infra/network"},{"Key":"infra.network.vpc","Source":"terraform-aws-modules/vpc/aws","Version":"2.66.0","Dir":".terraform/modules/infra.network.vpc"}]}
