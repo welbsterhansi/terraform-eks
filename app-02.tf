@@ -4,7 +4,6 @@ resource "helm_release" "tomcat" {
   chart      = "tomcat"
   namespace = "app-02"
   create_namespace = true
-}
 
 ### Setting replicas
   set {
@@ -29,7 +28,7 @@ resource "helm_release" "tomcat" {
     name = "resources.limits.memory"
     value = "256Mi"
   }
-}
+}  
 
 ### Create Horizontal Pod Autoscaler
 resource "kubernetes_horizontal_pod_autoscaler" "tomcat" {
@@ -56,7 +55,7 @@ resource "kubernetes_horizontal_pod_autoscaler" "tomcat" {
 
 				target {
 					type = "Utilization"
-					average_utilization = 60
+					average_utilization = 70
 				}
 			}
 		}

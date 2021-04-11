@@ -41,7 +41,7 @@ resource "kubernetes_horizontal_pod_autoscaler" "nginx" {
   spec {
     max_replicas = 5
     min_replicas = 1
-    target_cpu_utilization_percentage = 50
+    target_cpu_utilization_percentage = 70
 
     scale_target_ref {
       kind = "Deployment"
