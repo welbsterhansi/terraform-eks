@@ -36,7 +36,7 @@ Pedro Veríssimo Dantas Neto (pedro@verissimo.net.br)
 ```git clone https://bitbucket.org/naturacode/devops/ && cd devops/```
 
 ## Architecture Designer ###
-![Architecture Designer](./architecture_designer.png)
+![Architecture Designer](./images/architecture_designer.png)
 
 
 ## List of files and their descriptions
