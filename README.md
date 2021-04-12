@@ -53,6 +53,8 @@ Pedro Veríssimo Dantas Neto (pedro@verissimo.net.br)
 ## Initialize Terraform workspace
 ```terraform init```
 ## Provision the EKS cluster
+```terraform plan```
+
 ```terraform apply -auto-approve```
 ### Configure kubectl
 ```aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)```
@@ -87,3 +89,67 @@ Pedro Veríssimo Dantas Neto (pedro@verissimo.net.br)
 ```helm rollback nginx 5 -n app-01```
 
 ```helm rollback wordpress 5 -n app-02```
+
+## Managing Configurations for Different Environments
+### multiple environments in terraform
+For deploy it to multiple environments I would recommend using one Terraform project but for each environment use a separate Terraform variables file and a separate Terraform workspace.
+
+Your project will then look something like this:
+```
+dev.tfvars
+qa.tfvars
+prd.tfvars
+```
+Each environment variable file will then be run with the corresponding Terraform workspace to track Terraform State separately for each environment.
+
+### Infrastructure testing
+Having infrastructure tests helps ensure that what you wanted Terraform to create is what was actually created in your AWS account.
+
+### Jenkins
+Jenkins facilitates continuous integration and continuous delivery in software projects by automating parts related to build, test, and deployment. 
+
+You can integrate with git, create a pipeline and deploy in the configured environment.
+
+### Sample Jenkinsfile
+```
+pipeline {
+  parameters {
+    password (name: 'AWS_ACCESS_KEY_ID')
+    password (name: 'AWS_SECRET_ACCESS_KEY')
+  }
+  environment {
+    TF_WORKSPACE = 'dev' 
+    TF_IN_AUTOMATION = 'true'
+    AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
+    AWS_SECRET_ACCESS_KEY = "${params.AWS_SECRET_ACCESS_KEY}"
+  }
+  stages {
+    stage('Terraform Init') {
+      steps {
+        sh "${env.TERRAFORM_HOME}/terraform init -input=false"
+      }
+    }
+    stage('Terraform Plan') {
+      steps {
+        sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan -input=false -var-file='dev.tfvars'"
+      }
+    }
+    stage('Terraform Apply') {
+      steps {
+        input 'Apply Plan'
+        sh "${env.TERRAFORM_HOME}/terraform apply -input=false tfplan"
+      }
+    }
+    stage('AWSpec Tests') {
+      steps {
+          sh '''#!/bin/bash -l
+bundle install --path ~/.gem
+bundle exec rake spec || true
+'''
+
+        junit(allowEmptyResults: true, testResults: '**/testResults/*.xml')
+      }
+    }
+  }
+}
+```
