@@ -1,4 +1,4 @@
-# Natura DevOps - Challenge
+# Terraform - EKS - Helm
 Pedro Veríssimo Dantas Neto (pedro@verissimo.net.br)
 
 ## Technologies Used in Challenge
